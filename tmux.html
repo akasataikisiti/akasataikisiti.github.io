@@ -2,31 +2,30 @@
   <head></head>
   <body>
     <h1>Command I often use</h1>
-    <div>
-      <h2>名前を付けて新規セッション開始</h2>
-      <p>tmux new -s &lt;セッション名&gt;</p>
-    </div>
-    <div>
-      <h2>新規ウィンドウ作成</h2>
-      <p>c</p>
-    </div>
-    <div>
-      <h2>ウィンドウ移動</h2>
-      <h3>次に移動</h3>
-      <p>n</p>
-      <h3>前に移動</h3>
-      <p>p</p>
-    <div>
-    <div>
-      <h2>ペイン作成(左右分割)</h2>
-      <p>%</p>
-    </div>
-    <div>
-      <h2>ペイン移動</h2>
-      <h3>順番に移動</h3>
-      <p>o</p>
-      <h3>以前のペインへ移動</h3>
-      <p>&#059;</h3>
-    </div>
+    <p class="annotation">自環境はプレフィックスキーctrl+tに設定した。初期設定ではctrl+b</p>
+    <table>
+      <thead>
+        <th>内容</th>
+        <th>コマンド</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>名前を付けて新規セッション開始</td>
+          <td>tmux new -s &lt;セッション名&gt;</td>
+        </tr>
+        <tr>
+          <td>ウィンドウ次(前)移動</td>
+          <td> Ctl+t n(p)</td>
+        </tr>
+        <tr>
+          <td>ペイン作成（左右分割)</td>
+          <td>Ctl+t %</td>
+        </tr>
+        <tr>
+          <td>ペイン移動次 (前)</td>
+          <td>o (&#059;)</td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>
