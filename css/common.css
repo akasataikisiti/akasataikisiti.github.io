@@ -1,0 +1,50 @@
+body {
+  background-color: rgb(40,40,40);
+}
+
+h1 {
+  color: rgb(51,95,118);
+}
+
+h2,h3 {
+  color: rgb(107,165,152);
+}
+
+ul{
+  list-style: "-";
+}
+strong {
+  color:rgb(223,219,147);
+}
+p{
+  line-height: 2.0;
+  color: rgb(196,192,131);
+}
+li {
+  color: rgb(235,219,128);
+}
+
+a:visited {
+  color: rgb(107,165,152);
+}
+
+table {
+  margin:15px 30px;
+  border-collapse: collapse;
+}
+
+td, th {
+  border:2px rgb(181,90,226) solid;
+}
+
+th{
+  color: rgb(176,128,201);
+}
+
+td {
+  color:rgb(102,175,161);
+}
+
+.vanished td {
+  color:rgb(61,76,70);
+}

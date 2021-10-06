@@ -1,5 +1,8 @@
 <html>
-  <head></head>
+  <head>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/tmux.css">
+  </head>
   <body>
     <h1>Command I often use</h1>
     <p class="annotation">自環境はプレフィックスキーctrl+tに設定した。初期設定ではctrl+b</p>
@@ -14,16 +17,50 @@
           <td>tmux new -s &lt;セッション名&gt;</td>
         </tr>
         <tr>
+          <td>新規ウィンドウ</td>
+          <td><span class="prefix">Ctl+t</span> c</td>
+        </tr>
+        <tr>
+          <td>ウィンドウ破棄</td>
+          <td><span class="prefix">Ctl+t</span>&amp;</td>
+        </tr>
+        <tr>
+          <td>ウィンドウのリネーム</td>
+          <td><span class="prefix">Ctl+t</span> ,</td>
+        </tr>
+        <tr>
+          <td>ウィンドウ一覧表示</td>
+          <td><span class="prefix">Ctl+t</span> w</td>
+        </tr>
+        <tr>
+        <tr>
           <td>ウィンドウ次(前)移動</td>
-          <td> Ctl+t n(p)</td>
+          <td><span class="prefix">Ctl+t</span> n(p)</td>
         </tr>
         <tr>
           <td>ペイン作成（左右分割)</td>
-          <td>Ctl+t %</td>
+          <td><span class="prefix">Ctl+t</span> %</td>
         </tr>
         <tr>
           <td>ペイン移動次 (前)</td>
-          <td>o (&#059;)</td>
+          <td><span class="prefix">Ctl+t</span> o(&#059;)</td>
+        </tr>
+        <tr>
+          <td>ペイン破棄</td>
+          <td><span class="prefix">Ctl+t</span> x</td>
+        </tr>"
+        <tr>
+        <tr>
+          <td>セッションから離脱</td>
+          <td><span class="prefix">Ctl+t</span> d</td>
+        </tr>
+        <tr>
+          <td>セッション終了※-t&lt;対象セッション名&gt;でセッション名の指定も可能</td>
+          <td>tmux kill-session</td>
+        </tr>
+        <tr>
+          <td>tmux全体を終了</td>
+          <td>tmux kill-server</td>
         </tr>
       </tbody>
     </table>

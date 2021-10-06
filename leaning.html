@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="./css/learning.css">
+</head>
+<body>
+  <h1>学習中の内容</h1>
+  <div>
+    <p>divを同じ行に並べて表示する。=>Flexboxを使用する</p>
+    <p>横並びに表示したい要素たちを含む親divを作成する。その親divにdisplay:flexを付与する。</p>
+    <p>ある子要素にflex:1;を設定するとその子要素が柔軟に幅が変わる。</p>
+    <p>ここで作った子要素をflexitem,親要素をflex containerと呼ぶ。</p>
+    <p>containerの左から右に主軸が作られ、上から下に交差軸が作られる。</p>
+    <p>flex itemは主軸に沿って順番に作られていく。</p>
+  </div>
+  <div>
+    <p>flex-directionを使用することでflex containerの軸の方向を変える事ができる</p>
+    <p>flex-direction:row;は普通の剥き。flex-direction:row-reverseだと主軸を反対向きにできる。</p>
+    <p>justify-content:flex-end;主軸の終点からitemを並べるjustify-content: centerで主軸に沿って均等に揃える。。</p>
+    <p>flexboxdeでjustifyとなっているときそれは、主軸に対してitemをどう並べるか、alignは交差軸に対しての操作になる。</p>
+  </div>
+  <div>
+    <p>flex-wrapを使うと、containerから子要素があふれたときの動作を指定できる。</p>
+    <p>flex-wrap:wrapであふれた要素を交差軸方向に並べる事ができる。flex-wrap:nowrapがデフォルトで、あふれたときにitemが縮む</p>
+  </div>
+  <div>
+    <p>flex itemに対するプロパティ</p>
+    <p>align-self:flex-start;交差軸のstart,flex-end;交差軸の終点。center;交差軸の中央</p>
+    <p>order:この値の順に主軸に沿ってitemは並べられていく</p>
+  </div>
+  <div>
+    <p>主軸に対して余白が存在するときにそれぞれのitemをのばす設定</p>
+    <p>flex-grow:0;余白あっても伸ばさない。</p>
+    <p>item1にflex-glow:1; item2にflex-glow:2;とした時1:2の比で伸びて余白を埋める。</p>
+    <p>逆にflex-shrinkで主軸に余裕がない時にそれぞれのitemの縮方を設定できる。</p>
+  </div>
+  <div>
+    <p>flex:1 1 100px;とするとflex-grow:1,flex-shrink:1,flex-basis:100pxを設定できる</p>
+    <p>また略記としてflex:initial;で0 1 auto;flex: auto;で1, 1 auto; flex:none;で0 0 autoとすることもできる</p>
+    <p>flex:1とか設定したら、要素flex-growをうまい感じにできる=>d.tinstall CSSフレックスボックス偏。#08参照</p>
+  </div>
+  <div>
+  <p>margin,paddingのデフォルト値</P>
+  <p>the default value of margin and padding is defferent between the browser ,so there is commonly reccomended to reset those values</p>
+  </div>
+  <div>
+    <p>ピクセルだと端末の大きさの変化に対応できない</p>
+  </div>
+  <div>
+    <p>borderの角を丸くする</p>
+    <p>set all four corners with a radius of pixels or %.<p>
+    <p>border-radius: 50%;</p>
+  </div>
+  <div>
+    <p>padding that often be used to look less cramped the contents by expanding the back ground color.<p>
+  </div>
+  <div>
+    <p>padding can declaration whichi side have the padding(i.e. padding-top,padding-left) one by one.therefor padding can use shorthand property.</p>
+    <p><strong>padding: 20px 30px 40px</strong>;can set top value(20px), left and light(30px),bottom value(40px).</p>
+  </div>
+  <div>
+    <p>margin:0 auto; this let you the content you declare this makes center in the container element.
+  </div>
+  <div>
+    <p>水平方向のmarginは両者とも保たれるが、<strong>上下方向のmarginはつぶれる。</strong><p>
+  </div>
+  <div>
+    <p>min-width(height),max-width(height) がある。img要素によく使われる。</p>
+  </div>
+  <div>
+    <p>親の含有領域より大きい子要素はどの様に表示されるか</p>
+    <p>overflowプロパティを使う。hidden,scroll,visible値がある.
+    visible値がデフォルトである</p>
+  </div>
+  <div>
+    <p>user agent stylesheets を無効化した方がいい<p>
+    <p> * &#123; margin: 0; padding: 0; &#125;</p>
+  </div>
+  <div>
+    <p>visibilityプロパティで要素を消したりできる。</P>
+    <p>hidden:消す. visible:表示. collapse:折りたたむ.</p>
+    <p>visibility:hiddenは要素スペースがあくがdisplay:noneは要素スペースも消える</p>
+  </div>
+  <div>
+    <p>ボックスモデルの欠点。padding値とborderの太さがボックスの大きさに影響しこれがボックスモデルの管理を難しくしている。</p>
+    <p>box-sizing: border-box;と設定すると、この問題が解決する<p>
+    <p><pre>
+  * {
+    box-sizing: border-box;
+  }
+   
+  h1 {
+    border: 1px solid black;
+    height: 200px;
+    width: 300px;
+    padding: 10px;
+  }
+    </pre><p>
+    <p>この書き方だと、padding,border含めた大きさがheight,widthで設定できる</p>
+  </div>
+  <div>
+    <p>要素の位置をデフォルトから相対的に移動する。</p>
+    <p>position:relative</p>
+    <p>またtop,bottom,left,right: 50px;などのようにどのぐらい移動するかも指定する。</p>
+    <p>これらの位置指定子をoffsetpropertyという</p>
+  </div>
+  <div>
+    <p>position:absoluteは画面左端からの相対位置を指定できる。</p> 
+    <p>またabsoluteを指定された要素は他の要素からその位置を決める際に無視される。</p>
+  </div>
+  <div>
+    <p>fixedは位置指定はabsoluteと同じだが、スクロールしてもその場に居座るという点で違う</p>
+  </div>
+  <div>
+    <p>stickyは最初相対位置にいるが、スクロールされ指定されたtop等に差し渡ると</p>
+    <p>それ以降その場にとどまり続けるという性質が有る。</p>
+  </div>
+  <div>
+    <p>z-indexプロパティ、デフォルトで0が設定されており、値が大きいほど前面に来る</p>
+    <p>また静的なエレメントには効かない為、position:relative等を設定する必要が有る。</p>
+  </div>
+  <div>
+    <p>displayプロパティの値について</p>
+    <p>inline :その要素が包み込んでいるコンテンツ以上の大きさは取らない。他の要素と行を共有する</p>
+    <p>block  :その要素が行を共有しない。widthとheigthを設定できる。</p> 
+    <p>inline-block:行を共有する。widthとheigthを設定できる</p>
+  </div>
+  <div>
+    <p>floatプロパティ</p>
+    <p>コンテナの中で要素をできるだけ右に置くとかの指定ができる。float: left;</p>
+    <p>静的要素、相対要素両方に有効</p>
+  </div>
+  <div>
+    <p>clear:プロパティ。floatに酔って複数高さの異なる要素がぶつかったときに想定外の挙動を抑えるために使う。</p>
+    <p>left-要素の左側は、同じ包含要素内の他の要素に接触しません。</p>
+  </div>
+</body>
+</html>

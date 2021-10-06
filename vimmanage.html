@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script>
+</script>
+<link rel="stylesheet" href="./css/common.css">
+<link rel="stylesheet" href="./css/vimmanage.css">
+</head>
+<body>
+  <h1>My vim Status</h1>
+  <div>
+    <h3>プラグイン管理</h3>
+    <p>bundleやpathgenなど色々迷ったが、最終的にvim-plugにした</p>
+    <div>
+      <p>.vimrcファイルに欲しいプラグインの"<gitユーザ名>/<リポジトリ名>"を入力して</p>
+      <p><strong>:PlugInstall</strong>  install plugin added in .vimrc.(実行前に:source $MYVIMRCを実行する）</p>
+      <p><strong>:PlugUpdate</strong>  Updata Plugin</p>
+      <p><strong>:PlugClean</strong>  Clean Plugin that was removed from .vimrc.</p>
+    </div>
+  </div>
+  <div>
+    <div class="chapter">
+      <h3>プラグイン情報</h3>
+      <table>
+        <thead>
+          <th>plugin</th>
+          <th>description</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>mru.vim</td>
+            <td>
+              <p>View recently opened file history.</p>
+              <p><strong>/m</strong>で作動するように設定している。</p>
+            </td>
+          </tr>
+          <tr>
+            <td>vim-commentary</td>
+            <td>
+              <p>help add comments.</p>
+              <p>コメントアウトしたい箇所を選択して<strong>gcc</strong>でOK.外したいときも同様でOK.</p>
+            </td>
+          </tr>
+        </tbody>
+        <tr>
+          <td>vim-easymotion</td>
+          <td>
+            <p>move cursol at will.</p>
+            <p><strong>&lt;ctrl f&gt;</strong>で作動するように設定している。</p>
+          </td>
+        </tr>
+        <tr>
+          <td>vim-ack</td>
+          <td>
+            <p>ackをvimから使用できるようにした。</p>
+            <p><strong>":Ack --python Animal"</strong> =&gt; pythonファイルからAnimal文字列を含む物を列挙</p>
+            <p>*注）~/bin/ackにackをダウンロードして、.vimrcにackへのパスを記載しなければ使えない</p>
+          </td>
+        </tr>
+        <tr class="vanished">
+          <td>YouCompleteMe</td>
+          <td>候補が出てくるのでtabまたはctrl+n,ctrl+pで選択を行う。</td>
+        </tr>
+        <tr>
+          <td>tagbar</td>
+          <td>
+            <p>タグを付ける事で、プログラムの構造解析してくれて、タグジャンプを付けるようにする。<p>
+            <p>外部機能のUniversalCtagを使うのでインストールした。</p>
+            <p><strong>&lt;Leader&gt;t</strong>で関数一覧表示。<strong>&lt;Leader&gt;T</strong>で現在の関数名表示するようにした。</p>
+            <p>あとファイル更新時に自動でタグを更新するようにした。拡張子は必要となったら随時追加する必要あり</p>
+          </td>
+        </tr>
+        <tr>
+          <td>undotree</td>
+          <td>
+            <p><strong>f5</strong>キーでundotree起動できるようにした。</p>
+            <p>GundoTreeはpythonのバージョン？の関係で使えなかったから代替として使用</p>
+          </td>
+        </tr>
+        <tr>
+          <td>coc.nvim</td>
+          <td>
+            <p>言語毎のLanguageServerから構文をダウンロードして入力支援する</p>
+            <p>YouCompleteMeがかわりに要らなくなったので削除した。</p>
+            <p>もし新しい言語を使うことになったら.vimrcにその言語のLSをダウンロードする記述を書く</p>
+          </td>
+        </tr>
+        <tr>
+          <td>fern</td> 
+          <td>
+            <p>ファイラ。<strong>:f</strong>でプロジェクトウィンドウを開くようにした。</p>
+          </td>
+        </tr>
+        <tr>
+          <td>vim-closetag</td>
+          <td>
+            <p>htmlとかで開始タグを書いたら自動で終了タグが書かれる。</p>
+            <p>もう一度&lt;をおすと終了タグがかいぎょうされる。</p>
+          </td>
+        </tr>
+        <tr>
+          <td>Auto-pairs</td>
+          <td>
+            <p>括弧とかの閉じ括弧を自動で入力してくれる。</p>
+          </td>
+        </tr>
+        <tr>
+          <td>ulti-snippets</td>
+          <td>
+            <p>スニペットを使えるようにする。下記vim-snippetsも呼び出せる。</p>
+            <p>ctrl+lでスニペット一覧呼び出し。tabキーでスニペット使用※両者ともinsertモードで</p>
+        </tr>
+        <tr>
+          <td>vim-snippets</td>
+          <td>vimの各種言語のsnippets集を使えるようにした。</td>
+        </tr>
+      </table>
+    </div>
+    <div class="chapter">
+      <h3>fernショートカット集</h3>
+      <table>
+        <thead>
+          <th>コマンド</th>
+          <th>動作</th>
+        </thead> 
+        <tbody>
+          <tr>
+            <td>e</td>
+            <td>ファイルを開く</td>
+          </tr>
+          <tr>
+            <td>E</td>
+            <td>ファイル垂直分割でを開く</td>
+          </tr>
+          <tr>
+            <td>l</td>
+            <td>フォルダを展開</td>
+          </tr>
+          <tr>
+            <td>h</td>
+            <td>フォルダを閉じる</td>
+          </tr> 
+          <tr>
+            <td>Ctrl+m</td>
+            <td>選択フォルダに潜る</td>
+          </tr>
+          <tr>
+            <td>Ctrl+h</td>
+            <td>親ディレクトリに移動</td>
+          </tr>
+          <tr>
+            <td>N</td>
+            <td>ファイルを新規作成</td>
+          </tr>
+          <tr>
+            <td>K</td>
+            <td>ディレクトリを新規作成</td>
+          </tr>
+          <tr>
+            <td>D</td>
+            <td>ファイルを削除</td>
+          </tr>
+          <tr>
+            <td>R</td>
+            <td>ファイルをリネーム</td>
+          </tr>
+          <tr>
+            <td>m</td>
+            <td>ファイルを移動</td>
+          </tr>
+          <tr>
+            <td>y</td>
+            <td>ファイルパスをコピー</td>
+          </tr>
+          <tr>
+            <td>!</td>
+            <td>隠しファイルを表示/非表示</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
+
