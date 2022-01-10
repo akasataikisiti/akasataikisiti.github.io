@@ -1,0 +1,11 @@
+#ex_bg_image {
+  height: 280px;
+  background-image:url(../img/dot_fund_html.png);
+  background-size: contain;
+  opacity: 1;
+}
+
+.fg_content {
+  opacity: 1;
+  position: relative;
+}

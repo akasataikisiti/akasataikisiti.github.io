@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="../styles/common.css">
+  <link rel="stylesheet" href="../styles/dot_common.css">
+<meta charset="UTF-8">
+<script>
+</script>
+</head>
+<body>
+  <h2>display:flex</h2>
+  <p>親要素に<code>display:flex</code>を指定すると子要素のボックスが横並びになる。</p>
+  <p>子要素に<code>flex:1;</code>と指定するとその子要素が親要素の幅に合わせて柔軟に広がる。</p>
+  <p>親要素の事をflex container,子要素の事をflex itemと呼ぶ</p>
+  <h2>flex containerの軸について</h2>
+  <p>コンテナの左上を起点として右方向に<strong>主軸</strong>、下方向に<strong>交差軸</strong>が設定される。</p>
+  <h3>flex-direction</h3>
+  <p>主軸の方向を決めるプロパティでデフォルト値はrowである。<code>row-reverse</code>とすると主軸の方向が逆になる。</p>
+  <p><code>flex-direction:column</code>とすると主軸と交差軸が入れ替わる。なのでflex itemが上から下に順番に並べられる。</p>
+  <p><code>flex-direction:column-reverse</code>とするとitemが下から上に並べられる。</p>
+  <h3>itemを主軸に沿ってどう揃えるか指定。<code>justify-content</code>プロパティ</h3>
+  <p><code>flex-start</code>とすると主軸の始点（左）に揃えて並べる。</p>
+  <p><code>flex-end</code>とすると主軸の終点（右）に揃えて並べる。</p>
+  <p><code>center</code>とすると主軸の中央に揃えて並べる。</p>
+  <p><code>space-between</code>アイテムの間を均等にして並べる。</p>
+  <h3>itemを交差軸に沿ってどう揃えるか指定。<code>align-items</code>プロパティ</h3>
+  <p><code>flex-start</code>とすると主軸の始点（左）に揃えて並べる。</p>
+  <h3>はみ出した分をどうするか指定<code>flex-wrap</code>プロパティ</h3>
+  <p>デフォルトだとnowrapに設定されており、これは主軸に収まるようにitemを縮める事。</p>
+  <p><code>wrap</code>とするとはみ出した分の要素を交差軸に沿って並べてくれる。</p>
+  <p><code>wrap-reverse</code>としたら、交差軸の反対方向に並べてくれる。</p>
+  <h3>itemを交差軸方向に沿ってどう揃える指定<code>align-content</code>プロパティ</h3>
+  <p>値はjustify-contentと同じ</p>
+  <h3>flex-directionとflex-wrapを一括指定する。<code>flex-flow</code></h3>
+  <p><code>flex-flow: row wrap</code>と一括指定できる。</p>
+  <h2>flex itemに付けられる。プロパティ</h2>
+  <h3>交差軸に対する配置を決める。<code>align-self</code>プロパティ</h3>
+  <p><strong>flex-start</strong>交差軸の始点、flex-endで終点,centerで中央</p>
+  <h3>flex itemの順番を決めるプロパティ<code>order</code>プロパティ</h3>
+  <p>初期値が0である。あるアイテムをorder:1などとするとそのアイテムが最後に並べられる。</p>
+  <p>order: -1;とするとそのアイテムが先頭に並べられる。</p>
+  <h3>flexコンテナ内でのflex itemの幅（高さ）を指定する。<code>flex-basis</code>プロパティ</h3>
+  <p>デフォルトだとautoでこれはその要素の大きさを決めるルールに従う。（height,widthとかコンテンツとか）</p>
+  <h3>主軸方向に余白が有る際にどれぐらい伸ばすか<code>flex-grow</code>プロパティ</h3>
+  <p>flex-grow:1;flex-grow:2;でそれぞれの要素を決めたら、余白を1:2の割合で埋めるように伸びる。</p>
+  <h3>コンテナの幅が足りなかったときの挙動<code>flex-shrink</code>プロパティ</h3>
+  <p>設定した比に即して要素が縮む</p>
+  <h3>flex-basis,grow,shrinkの一括指定<code>flex</code>プロパティ</h3>
+  <p>flex:1;をよく設定することがある。その場合grow:1,shrink,1,basis:0%で設定したことになる。</p>
+  <h2>display:flex;とした時、その要素直下の子要素のみflex-itemとなる。※注意</h2>
+  <h2>footerを画面下に持っていく時に気を付ける事。</h2>
+  <p>bodyタグ（コンテナ）内にheader,main,footerがありfooterを画面最下に持っていきたいとき。</p>
+  <p>mainのgrow:1としただけだとfooterが下に行かない。それはbodyのheightが定められていない為、</p>
+  <p>bodyの高さが要素の高さになっている、bodyのheightを100%にする必要が有る。</p>
+  <p>bodyの親要素であるhtml要素も100%にしなければならない。</p>
+  <h2>flexboxのmarginについて</h2>
+  <p>flexboxの<strong>縦方向のmarginは相殺されない</strong>点に注意</p>
+  <h2>flexボックスを使って要素を中央に配置する。</h2>
+  <p>コンテナにdisplay:flex; justify-content: center; align-items:center;と設定するだけ。</p>
+</body>
+</html>

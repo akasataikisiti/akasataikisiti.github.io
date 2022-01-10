@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="../styles/common.css">
+  <link rel="stylesheet" href="../styles/dot_common.css">
+  <link rel="stylesheet" href="../styles/css_dot_animation.css">
+<meta charset="UTF-8">
+<script>
+</script>
+</head>
+<body>
+  <h2>cssアニメーションの考え方。</h2>
+  <p>変化前と変化後のスタイルを作って、その中間を補完するという手法</p>
+  <h2>transformプロパティ</h2>
+  <p>translateX(100px),translateY(100px)でそれぞれX,Yに移動。Translate(100px,100px)で両方移動</p>
+  <p>rotate(60deg)で回転。scaleX(2),scaleY(2)でそれぞれ拡大。scale(2,2)で両方拡大</p>
+  <h3>transformは複数valueを設定できるが。順番が大事</h3>
+  <p>先に設定した値から順に適応される。</p>
+  <div class="example">
+    <pre class="code_html" style="width: 500px;">
+&lt;div class="box"&gt;&lt;/div&gt;
+.box &#123;
+  width: 100px; height: 100px; background:orange;
+transition-property:transform;
+transition-duration: 1s; 
+&#125;
+.box &#123;:hover
+transform: translateX(100px) rotate(30deg);
+&#125;
+    </pre>
+    <div id="result1" style="width: 500px">
+      <div id="box1"></div> 
+    </div>
+  </div>
+  <h3>rotateの起点</h3>
+  <p>デフォルトだと図形中央を起点に回転するが、<code>gransform-origin: top left;</code>と書いたら左上を起点に回転する。</p>
+  <p>またtransform-originは変形後にだけ適用したいわけではないので、変形前のcssに記載する。</p>
+  <p>またscaleもでふぉるだと中央を起点に拡大するが、同じように起点変更できる。</p>
+  <h3>色の変化</h3>
+  <p>変化後のcssに変化後の色を追加してあげる。またtransition-propertyにbackgroundを追加してやる。</p>
+  <div class="example">
+    <pre class="code_html" style="width: 500px;">
+&lt;div class="box"&gt;&lt;/div&gt;
+.box &#123;
+  width: 100px; height: 100px; background:orange;
+  transition-property: transform, <strong>background</strong>;
+  transition-duration: 1s; 
+&#125;
+  .box &#123;:hover
+  transform: translateX(100px) rotate(30deg);
+  background: skyblue;
+&#125;
+    </pre>
+    <div id="result2" style="width: 500px">
+      <div id="box2"></div> 
+    </div>
+  </div>
+  <p>transition-property:allとして全てのプロパティをアニメさせることもできる</p>
+</body>
+</html>

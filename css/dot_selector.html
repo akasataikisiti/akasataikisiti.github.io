@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="../styles/common.css">
+  <link rel="stylesheet" href="../styles/dot_common.css">
+  <link rel="stylesheet" href="../styles/css_dot_selector.css">
+<meta charset="UTF-8">
+<script>
+</script>
+</head>
+<body>
+  <h1>CSSセレクター</h1>
+  <h2>属性セレクター、全称セレクター</h2>
+  <p>&#91;href&#93; =&gt; href属性がついたセレクター全てつまり&lt;a href="about.html"&gt;みたいなタグの事</p>
+  <p>* は全ての要素を選択</p>
+  <h2>複数のクラス属性</h2>
+  <p>クラス属性は半角スペースで複数の付与ができる。id属性は一つしか付与できない。</p>
+  <h2>属性セレクター２</h2>
+  <p>属性の値が特定の物である要素を選択させるには<code>&#91;href="#top"&#93;</code>みたいに書いてやればよい。</p>
+  <p style="color:red; font-size: 0.8rem;" >クリックしたら#topに飛ぶ要素</p>
+  <p>また前方一致もつかうことができる。<code>&#91;href^="http"&#93;</code>の様に書いたらhref属性の値がhttpで始まる要素を選択できる。</p>
+  <p>後方一致は<code>&#91;href$="com"&#93;</code>の様に書いたらhref属性の値がcomで終る要素を選択できる。</p>
+  <p>部分一致は<code>&#91;href*="com"&#93;</code>の様に書いたらhref属性の値にcomが含まれる要素を選択できる。</p>
+  <h2>セレクターの組み合わせ。</h2>
+  <h3>ある要素の直下のある要素</h3>
+  <p>main &gt; h1 でmain要素直下のh1を選択</p>
+  <h3>あるセレクターの下の全ての階層のある要素</h3>
+  <p>main h1 でmain要素下の全てのh1を選択</p>
+  <h3>同じ階層である要素の次のある要素</h3>
+  <p>p + p でp要素の次にあるp要素が選択される。</p>
+  <div class="example">
+    <pre class="code_html" style="width: 500px;">
+&lt;p&gt;Hello,hello.&lt;/p&gt;
+&lt;p&gt;Hello,hello.&lt;/p&gt;
+&lt;p&gt;Hello,hello.&lt;/p&gt;
+p + p &#123;  border-top: 1px solid orange; &#125;
+    </pre> 
+    <div id="result1" style="width:500px;">
+      <p>Hello,hello.</p>
+      <p>Hello,hello.</p>
+      <p>Hello,hello.</p>
+    </div>
+  </div>
+  <p>このように隣接した要素の間に何らかのスタイルを差し込みたい場合に使える。</p>
+  <h2>疑似要素</h2>
+  <p>ある要素の前後に値を差し込むことが出来る。</p>
+  <p>この時に使用される。before,afterを疑似要素という。</p>
+  <div class="example">
+    <pre class="code_html" style="width: 500px;">
+&lt;p&gt;テスト&lt;/p&gt;
+&lt;p&gt;テスト&lt;/p&gt;
+
+p::before &#123; content: '- '; &#125;
+p::after &#123; content: ' -'; &#125;
+    </pre> 
+    <div id="result2" style="width:500px;">
+      <p>テスト</p>
+      <p>テスト</p>
+    </div>
+  </div>
+  <h3>独自属性</h3>
+  <p>htmlではdata-で始まっていれば、独自の要素を付けてもよい。</p>
+  <p>下の例はp要素にda-tasubtitle属性とそれに各自値を設定し、その値をcssでattr(data-subtitle)で取得してそれをbefore疑似要素のcontentとして呼び出している。</p>
+  <div class="example">
+    <pre class="code_html" style="width: 500px;">
+&lt;p data-subtitle="-MainMidashi"&gt;メイン見出し&lt;/p&gt;
+&lt;p data-subtitle="-SubMidashi"&gt;サブ見出し&lt;/p&gt;
+
+p::before &#123; content: attr&#40;data-subtitle&#41;; &#125;
+    </pre> 
+    <div id="result3" style="width:500px;">
+      <p data-subtitle="-MainMidashi">テスト</p>
+      <p data-subtitle="-SubMidashi">テスト</p>
+    </div>
+  </div>
+  <h3>カーソルを当てたときの状態にスタイルを設定する。</h3>
+  <p>.btn:hoverでボタンクラスにホバーした状態にスタイル付けれる。</p>
+  <p>.btn:hover &#123;curose:pointer;&#125;としたらホバーしたときにマウスの形を変える事ができる。</p>
+  <h2>:nth-child疑似クラス。</h2>
+  <p>mainクラス直下に複数のpが並んでいる状態で３番目のpにスタイルを設定したい時。</p>
+  <p><code>main &gt; n-th-child&#40;3&#41;</code>としたらできる。</p>
+  <p><code>main &gt; n-th-child&#40;3n&#41;</code>とすることで３の倍数箇所に指定できる。</p>
+  <p><code>main &gt; n-th-child&#40;odd&#41;</code>とすることで奇数箇所の倍数箇所に指定できる。</p>
+  <p><code>main &gt; n-th-child&#40;even&#41;</code>とすることで偶数箇所の倍数箇所に指定できる。</p>
+  <p><code>main &gt; first-child;</code>とすることで最初の要素に指定できる。</p>
+  <p><code>main &gt; last-child;</code>とすることで最後の要素に指定できる。</p>
+  <h2>:nth-of-type疑似クラス</h2>
+  <p>ある要素の３番目の要素にスタイルを指定したいとき。</p>
+  <p><code>main &gt; h2:nth-of-type(3)</code>と指定できる。</p>
+  <p><code>main &gt; first-of-type;</code>とすることで最初の指定要素に設定できる。</p>
+  <p><code>main &gt; last-of-type;</code>とすることで最後の指定要素に設定できる。</p>
+  <h2>empty</h2>
+  <p>例えば、<code>li:empty</code>と書いたら、li要素の中で空の物にスタイルを付ける事ができる。半角スペースは空にならないので注意</p>
+  <h2>not</h2>
+  <p>疑似クラスの否定を表す事ができる。</p>
+  <p><code>li:not(:empty)</code>とすることで、空でないli要素を指定できる。</p>
+  <h2>指定の詳細度</h2>
+  <p>id class,属性,疑似クラス 要素,疑似要素の順に詳細度が高くなる。idが100の位、classとかが10の位、要素とかが1の位と考えたら分かり易い。</p>
+  <p>プロパティ値の設定がバッティングした場合、セレクターの詳細度が高い方の物が優先される。</p>
+  <p>ただしhtmlのstyle属性に直接書いたものがある場合そちらが優先される。</p>
+  <p>もっとも優先度が高い書き方は属性値の後ろに <code>!important</code>をつけた値となる。</p>
+</body>
+</html>

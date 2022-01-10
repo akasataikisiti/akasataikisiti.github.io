@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <link rel="stylesheet" href="../styles/common.css" >
+  <link rel="stylesheet" href="../styles/dot_common.css" >
+  <link rel="stylesheet" href="../styles/css_dot_fund.css" >
+<meta charset="UTF-8">
+<script>
+</script>
+</head>
+<body>
+  <h1>cssの基本</h1>
+  <h2>cssの基本</h2>
+  <h3>記法</h3>
+  <p>cssのプロパティと値をまとめて宣言という</p>
+  <h3>style継承</h3>
+  <p>cssのプロパティには子要素に継承されるものが有る、MDNで調べる事ができる。</p>
+  <p>また本来継承されないプロパティにもinherit値を設定することで継承させる事ができる。</p>
+  <p>＜例＞<code>border:inherit;</code></p>
+  <h2>fontの設定</h2>
+  <p>cssファイル内に日本語が含まれる場合ファイルの先頭に<code>@charset "utf-8;"</code>を設定する</p>
+  <h2>line-heightについて</h2>
+  <p>pxで設定することもできるし、3emまたは3とすることでfont-sizeの３倍になる。</p>
+  <p>単位あり子要素に対して親要素で計算した数値がそのまま継承される。</p>
+  <p>単位無しの場合子要素でも数値が再計算した値が反映される。</p>
+  <h2>vertical-align</h2>
+  <p>vertical-alignのデフォルト値はbaselineに設定されている。</p>
+  <p>top,middle,bottom等の値がある。また-2pxとすることでbaselineから下に2pxと指定できる</p>
+  <h2>透明度操作</h2>
+  <p>例えばあるP要素全体の透明度を指定もopacity: 0.5;みたいに操作できる。</p>
+  <p>画像の透明度も操作できる。</p>
+  <h2リストのスタイル操作></h2>
+  <p>ul内に<code>list-style-type: cirle;</code>とする事で〇で箇条にできる</p>
+  <p>ol内に<code>list-style-type:lower-alpha;</code>とすることで小文字英で箇条にできる。</p>
+  <p>また<code>list-style-type: none;</code>とすることで箇条を消す事ができる。</p>
+  <p><code>list-style-image:url();</code>で画像を箇条に使える。</p>
+  <h3>リストの箇条の位置を指定することもできる。</h3>
+  <p>list-style-position: inside;でできる</p>
+  <h2>一括指定プロパティ</h2>
+  <p>list-style: circle inside url();で一括指定できる</p>
+  <p>一括指定プロパティの前に個別で値を指定する場合は値が上書きされる可能性が有るので注意すること</p>
+  <h2>ボックスの大きさ指定</h2>
+  <p>width,heightでしていできる。pxでしていすることができる。</p>
+  <p>また%で指定することで、親要素に対する大きさの割合を指定することが出来る。</p>
+  <h2>ボーダー指定</h2>
+  <p>border-width:2px; border-style:solid; border-color:blue;を一括でしていすると</p>
+  <p><code>border: 2px solid blue;</code>となる</p>
+  <p>border-topやborder-bottomなど特定の方向に付ける事もできる,またborderに指定した後にborder-bottom:noneとして下だけ消すこともできる。</p>
+  <p>またborder-radius:10px;とすることで、ボーダーを丸くすることもできる</p>
+  <h2>marginの左右方向のauto</h2>
+  <p>margin-left:auto;はボックスを指定した時にできる左右の余白を左に割り当てる意味になる。</p>
+  <p>margin-left:auto;,margin-right:autoとするとボックスが中央揃えになる。</p>
+  <h2>marginの相殺</h2>
+  <p>marginの垂直方向は互いに相殺される。ただし水平方向は相殺が起こらない。</p>
+  <h2>displayプロパティ</h2>
+  <p>全ての要素はdisplay:block,またはdisplay:inlineのものに分類される。</p>
+  <p>block要素はwidthが親要素いっぱい、高さがコンテンツの高さになる。inlineは両方ともコンテンツの数値になる。</p>
+  <p>displayの要素はwidth,heightが指定できない。したいときはdisplay:inline-block;としてあげる。</p>
+  <p>またdisplay:none;とすると要素を表示しないようにすることが出来る。</p>
+  <h2>positionプロパティ</h2>
+  <p>position: staticがデフォルト値。</p>
+  <p>position: relative;にしてtop:30px left:30pxとするとstaticの位置から下に30px,左に30pxずれた位置に配置される。</p>
+  <h3>画面に要素を固定する。</h3>
+  <p><code>position:fixed;</code>としてtop:30px left:30pxとすると、ウィンドウの起点から下に30px,左に30pxの位置に配置され、スクロールしても固定されている。</p>
+  <p>またposition:fixedとした要素は他の要素の配置の影響から外れる。</p>
+  <h3>position:absolue;</h3>
+  <p>親要素がstaticの場合はウィンドウの起点からtop,left,right分ずれた位置に、配置</p>
+  <p>親要素がfixedやrelativeの場合はその親要素を起点にしてずれた位置に配置される。</p>
+  <h2>要素の重なり順をしていする。z-indexプロパティ</h2>
+  <p>z-indexが大きい値程上に表示される。</p>
+  <h2>boxのwidth,heightをpadding,borderを含めた指定に変更</h2>
+  <p>box-sizing:border-boxにするとできる。</p>
+  <h2>width: calc((100% - 40px) / 3)で計算結果をwidthに自動設定</h2>
+  <p>calc内の演算子の間にはスペースを入れる必要があるので注意</p>
+  <h2>要素に影を付ける。</h2>
+  <p>box-shadow: 10px 50x rgba(0,0,0,0.3)で右下方向に影を付けれる。</p>
+  <p>box-shadow: 10px 5px 3px rgba(0,0,0,0.3)と三つ目の数値で影をぼかすことが出来る。</p>
+  <p>box-shadow: 10px 5px 3px 10px rgba(0,0,0,0.3)と4つ目の数値で影を拡大出来る。</p>
+  <p>text-shadowにしてテキストに影を付けれる。</p>
+  <h2>背景に画像を設定し、その画像の縦横比を保持したままできるだけbox内に大きく表示したいとき。</h2>
+  <div id="ex_bg_image">
+    <div class="fg_content">
+      <pre class="code_html opa_content" style="width:500px;">
+header {
+  height: 80px;
+  background-color: pink;
+  background-image:url(../img/dot_fund_html.png);
+  background-size: cover;
+}
+      </pre>
+      <p style="background-color:black; width:540px;"><code>background-size:cover;</code>で写真の縦横比をそのままにできる。</p>
+      <p style="background-color:black; width: 540px;">ここに関してはほんと使うたびに調べる必要が有る。レッスン32参照</p>
+    </div>
+  </div>
+  <h2>floatプロパティ</h2>
+  <p>画像とかを右に寄せる。 float:right;</p>
+  <p>floatを設定した要素はその後に配置される要素から無視される。</p>
+  <p>ただし。テキストが長くなりfloat要素に差し掛かった時は、テキストはその要素を回り込む。</p>
+</body>
+</html>

@@ -1,0 +1,15 @@
+#result1 p + p {
+  border-top: 1px solid orange;
+}
+
+#result2 > p::before {
+content: '- ';
+}
+
+#result2 > p::after {
+content: ' -';
+}
+
+#result3 > p::before {
+  content: attr(data-subtitle);
+}

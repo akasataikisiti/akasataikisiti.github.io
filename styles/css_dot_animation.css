@@ -1,0 +1,23 @@
+#box1 {
+  width: 100px;
+  height: 100px;
+  background:orange;
+  transition-property:transform;
+  transition-duration: 1s;
+}
+
+#box1:hover {
+  transform: translateX(100px) rotate(30deg);
+}
+#box2 {
+  width: 100px;
+  height: 100px;
+  background:orange;
+  transition-property:transform, background;
+  transition-duration: 1s;
+}
+
+#box2:hover {
+  background:skyblue;
+  transform: translateX(100px) rotate(30deg);
+}
